@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <ui:include src="/WEB-INF/templates/header.xhtml" />
+            <section>
+                <p:messages>
+                    <p:autoUpdate />
+                </p:messages>
+                <p:panel header="Ingresar Pais">
+                    <h:panelGrid columns="4">
+                        <h:outputLabel value="Nombre del pais" />
+                        <p:inputText value="#{paisManagedBean.nombreTxt}" 
+                                     required="true" 
+                                     requiredMessage="Debe Ingresar el nombre"/>
+                        <p:commandButton value="Ingresar" 
+                                         actionListener="#{paisManagedBean.agregarProducto}" />
+                    </h:panelGrid>
+                </p:panel>
+            </section>
+        </h:form>
+    </h:body>
+</html>
