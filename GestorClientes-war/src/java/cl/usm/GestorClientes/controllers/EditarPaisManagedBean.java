@@ -8,9 +8,12 @@ package cl.usm.GestorClientes.controllers;
 
 import cl.usm.GestorClientes.dao.PaisFacadeLocal;
 import cl.usm.GestorClientes.dto.Pais;
+import java.io.IOException;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
@@ -42,9 +45,15 @@ public class EditarPaisManagedBean implements Serializable {
     public void actualizarPais(){
         //Los campos ya estan actualizados, en el objeto, Binding
         this.paisFacade.edit(paisEditado);
-        FacesContext.getCurrentInstance()
-                .addMessage(null, new FacesMessage("Pokemon Actualizado"));
-    }
+
+        try {
+            FacesContext.getCurrentInstance()
+                    .getExternalContext()
+                    .redirect("ver_pais.xhtml");
+        } catch (IOException ex) {
+        }
+
+        }
     
     public Pais getPisEditado() {
         return paisEditado;

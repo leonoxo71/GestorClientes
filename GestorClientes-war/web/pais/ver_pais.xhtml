@@ -14,10 +14,11 @@
             <ui:include src="/WEB-INF/templates/header.xhtml" />
             <p:dataTable  id='tabla_paises'
                           value="#{paisManagedBean.paises}" var="p">
-                <p:column headerText="Codigo">
+                <p:column headerText="Codigo"
+                          filterBy="#{p.codPais}" >
                     <h:outputText value="#{p.codPais}" />
                 </p:column>
-                <p:column headerText="Nombre">
+                <p:column headerText="Nombre" filterBy="#{p.nombre}">
                     <h:outputText value="#{p.nombre}" />
                 </p:column>
                 <p:column headerText="Acciones">

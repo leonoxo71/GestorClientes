@@ -11,17 +11,16 @@
     <h:body>
         <h:form>
             <p:growl id="mensajes" showDetail="true"/>
-            <ui:include src="WEB-INF/templates/header.xhtml" />
-            <p:panel header="Editar Pais #{editarPaisManagedBean.paisEditado.nombre}">
+            <ui:include src="/WEB-INF/templates/header.xhtml" />
+            <p:panel header="Editar Pais #{editarPaisManagedBean.pisEditado.nombre}">
                 <h:panelGrid columns="2" >
                     <p:outputLabel value="Nombre" />
                     <p:inputText required="true"
-                                 value="#{editarPokemonManagedBean.pokemonEditado.nombre}"
+                                 value="#{editarPaisManagedBean.pisEditado.nombre}"
                                  requiredMessage="Debe Ingresar nombre" />
-                    <p:outputLabel value="Nivel" />
             
                     <p:commandButton value="Actualizar" update="mensajes"
-                                     actionListener="#{editarPaisManagedBean.actualizarPais()}"/>
+                                     actionListener="#{editarPaisManagedBean.actualizarPais}"/>
                 </h:panelGrid>
             </p:panel>
         </h:form>
