@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Editar Usuarios</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <p:growl id="mensajes" showDetail="true"/>
+            <ui:include src="/WEB-INF/templates/header.xhtml" />
+            <p:panel header="Editar Pais #{editarUsuarioManagedBean.usuarioEditado.nombre}">
+                <h:panelGrid columns="2" >
+                    <p:outputLabel value="Rut usuario:" />
+                    <p:inputText required="true"
+                                 value="#{editarUsuarioManagedBean.usuarioEditado.rutUsuario}"
+                                 requiredMessage="Debe Ingresar nombre" />
+                    <p:outputLabel value="Nombre:" />
+                    <p:inputText required="true"
+                                 value="#{editarUsuarioManagedBean.usuarioEditado.nombre}"
+                                 requiredMessage="Debe Ingresar nombre" />
+                    <p:outputLabel value="Usuario:" />
+                    <p:inputText required="true"
+                                 value="#{editarUsuarioManagedBean.usuarioEditado.usuario}"
+                                 requiredMessage="Debe Ingresar nombre" />
+                    <p:outputLabel value="Password" />
+                    <p:inputText required="true"
+                                 value="#{editarUsuarioManagedBean.usuarioEditado.password}"
+                                 requiredMessage="Debe Ingresar nombre" />
+                    <h:panelGrid columns="3" style="margin-bottom:10px" cellpadding="5">
+                            <p:outputLabel  value="Sexo del usuario:" />
+                            <p:selectOneRadio id="sexo" 
+                                              value="#{editarUsuarioManagedBean.usuarioEditado.sexo}" >
+                                <f:selectItem itemLabel="Hombre" itemValue="0" />
+                                <f:selectItem itemLabel="Mujer" itemValue="1" />
+                                <f:selectItem itemLabel="Helicoptero de Guerra" itemValue="2" />
+                            </p:selectOneRadio>
+                        </h:panelGrid>
+            
+                    <p:commandButton value="Actualizar" update="mensajes"
+                                     actionListener="#{editarUsuarioManagedBean.actualizarUsuario}"/>
+                </h:panelGrid>
+            </p:panel>
+        </h:form>
+    </h:body>
+</html>
+

@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Ver Usuarios</title>
+    </h:head>
+    <h:body>
+        <h:form id='formulario'>
+            <p:growl id="mensajes" showDetail="true"/>
+            <ui:include src="/WEB-INF/templates/header.xhtml" />
+            <p:dataTable  id='tabla_usuarios'
+                          value="#{usuarioManagedBean.usuarios}" var="u">
+                <p:column headerText="Rut Usuario"
+                          filterBy="#{u.rutUsuario}" >
+                    <h:outputText value="#{u.rutUsuario}" />
+                </p:column>
+                <p:column headerText="Nombre" filterBy="#{u.nombre}">
+                    <h:outputText value="#{u.nombre}" />
+                </p:column>
+                <p:column headerText="Usuario" filterBy="#{u.usuario}">
+                    <h:outputText value="#{u.usuario}" />
+                </p:column>
+                <p:column headerText="Password" filterBy="#{u.password}">
+                    <h:outputText value="#{u.password}" />
+                </p:column>
+                <p:column headerText="Sexo" filterBy="#{usuarioManagedBean.getSexo(u.sexo)}">
+                    <h:outputText value="#{usuarioManagedBean.getSexo(u.sexo)}" />
+                </p:column>
+                <p:column headerText="Acciones">
+                    <p:panelGrid columns="2" layout="grid">
+                        <p:commandLink value="Eliminar"
+                                   update=":formulario:mensajes :formulario:tabla_usuarios"
+                                   actionListener="#{usuarioManagedBean.eliminarUsuario(u)}" />
+                        <p:commandLink value="Editar"
+                                       actionListener="#{usuarioManagedBean.editarUsuario(u)}" />
+                    </p:panelGrid>
+                </p:column>
+            </p:dataTable>
+        </h:form>
+    </h:body>
+</html>

@@ -55,7 +55,7 @@ public class EditarPaisManagedBean implements Serializable {
 
         }
     
-    public Pais getPisEditado() {
+    public Pais getPaisEditado() {
         return paisEditado;
     }
 

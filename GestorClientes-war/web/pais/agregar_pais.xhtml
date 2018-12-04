@@ -5,7 +5,7 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
-        <title>Facelet Title</title>
+        <title>Agregar Pais</title>
     </h:head>
     <h:body>
         <h:form>
@@ -19,7 +19,7 @@
                         <h:outputLabel value="Nombre del pais" />
                         <p:inputText value="#{paisManagedBean.nombreTxt}" 
                                      required="true" 
-                                     requiredMessage="Debe Ingresar el nombre"/>
+                                     requiredMessage="Debe Ingresar el Nombre"/>
                         <p:commandButton value="Ingresar" 
                                          actionListener="#{paisManagedBean.agregarPais}" />
                     </h:panelGrid>

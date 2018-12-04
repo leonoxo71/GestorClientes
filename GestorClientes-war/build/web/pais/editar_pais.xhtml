@@ -12,11 +12,11 @@
         <h:form>
             <p:growl id="mensajes" showDetail="true"/>
             <ui:include src="/WEB-INF/templates/header.xhtml" />
-            <p:panel header="Editar Pais #{editarPaisManagedBean.pisEditado.nombre}">
+            <p:panel header="Editar Pais #{editarPaisManagedBean.paisEditado.nombre}">
                 <h:panelGrid columns="2" >
                     <p:outputLabel value="Nombre" />
                     <p:inputText required="true"
-                                 value="#{editarPaisManagedBean.pisEditado.nombre}"
+                                 value="#{editarPaisManagedBean.paisEditado.nombre}"
                                  requiredMessage="Debe Ingresar nombre" />
             
                     <p:commandButton value="Actualizar" update="mensajes"

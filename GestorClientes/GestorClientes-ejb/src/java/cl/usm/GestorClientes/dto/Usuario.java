@@ -27,7 +27,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Usuario.findByRutUsuario", query = "SELECT u FROM Usuario u WHERE u.rutUsuario = :rutUsuario")
     , @NamedQuery(name = "Usuario.findByUsuario", query = "SELECT u FROM Usuario u WHERE u.usuario = :usuario")
     , @NamedQuery(name = "Usuario.findByNombre", query = "SELECT u FROM Usuario u WHERE u.nombre = :nombre")
-    , @NamedQuery(name = "Usuario.findByPassword", query = "SELECT u FROM Usuario u WHERE u.password = :password")})
+    , @NamedQuery(name = "Usuario.findByPassword", query = "SELECT u FROM Usuario u WHERE u.password = :password")
+    , @NamedQuery(name = "Usuario.findBySexo", query = "SELECT u FROM Usuario u WHERE u.sexo = :sexo")})
 public class Usuario implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -44,6 +45,9 @@ public class Usuario implements Serializable {
     @Basic(optional = false)
     @Column(name = "password")
     private String password;
+    @Basic(optional = false)
+    @Column(name = "sexo")
+    private int sexo;
 
     public Usuario() {
     }
@@ -52,11 +56,20 @@ public class Usuario implements Serializable {
         this.rutUsuario = rutUsuario;
     }
 
-    public Usuario(String rutUsuario, String usuario, String nombre, String password) {
+    public Usuario(String rutUsuario, String usuario, String nombre, String password, int sexo) {
         this.rutUsuario = rutUsuario;
         this.usuario = usuario;
         this.nombre = nombre;
         this.password = password;
+        this.sexo = sexo;
+    }
+
+    public int getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(int sexo) {
+        this.sexo = sexo;
     }
 
     public String getRutUsuario() {
