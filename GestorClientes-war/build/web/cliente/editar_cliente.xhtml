@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Editar Clientes</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <ui:include src="/WEB-INF/templates/header.xhtml" />
+            <section>
+                <p:messages>
+                    <p:autoUpdate />
+                </p:messages>
+                <p:panel header="Ingresar Cliente">
+                    <h:panelGrid columns="2">
+                        <h:outputLabel value="Nombre del cliente" />
+                        <p:inputText value="#{editarClienteManagedBean.cliente.nombre}" 
+                                     required="true" 
+                                     requiredMessage="ingrese nombre del cliente"/>
+                        <h:outputLabel value="Apellido paterno" />
+                        <p:inputText value="#{editarClienteManagedBean.cliente.apPaterno}" 
+                                     required="true" 
+                                     requiredMessage="ingrese apellido paterno del cliente"/>
+                        <h:outputLabel value="Apellido materno" />
+                        <p:inputText value="#{editarClienteManagedBean.cliente.apMaterno}" 
+                                     required="true" 
+                                     requiredMessage="ingrese apellido materno del cliente"/>
+                        <h:outputLabel value="Telefono" />
+                        <p:inputText value="#{editarClienteManagedBean.cliente.telefono}" 
+                                     required="true" 
+                                     requiredMessage="ingrese telefono del cliente"/>
+                        <h:outputLabel value="EMail" />
+                        <p:inputText value="#{editarClienteManagedBean.cliente.mail}" 
+                                     required="true" 
+                                     requiredMessage="ingrese email del cliente"/>
+                        <h:outputLabel value="direccion" />
+                        <p:inputText value="#{editarClienteManagedBean.cliente.direccion}" 
+                                     required="true" 
+                                     requiredMessage="ingrese nombre del cliente"/>
+             
+                        <p:selectOneMenu value="#{editarClienteManagedBean.cliente.codCiudad.codPais.codPais}"                                     
+                                     required="true" 
+                                     requiredMessage="Debe Ingresar el pais">
+                            <f:selectItems value="#{editarClienteManagedBean.paises}" var="pais" 
+                                           itemLabel="#{pais.nombre}" itemValue="#{pais.codPais}" />
+                            <p:ajax event="change" update="ciudades" listener="#{editarClienteManagedBean.changedPaisEdit}" />
+                        </p:selectOneMenu>
+                        <p:selectOneMenu id ="ciudades" value="#{editarClienteManagedBean.cliente.codCiudad.codCiudad}" 
+                                     required="true" 
+                                     requiredMessage="Debe Ingresar la ciudad">
+                            <f:selectItems value="#{editarClienteManagedBean.ciudades}" var="ciudad" 
+                                           itemLabel="#{ciudad.nombre}" itemValue="#{ciudad.codCiudad}" />
+                            
+                        </p:selectOneMenu>
+                        <h:outputLabel value="Fecha de nacimiento" />
+                        <p:calendar  value="#{editarClienteManagedBean.cliente.fechaNacimiento}"
+                            required="true"
+                                    requiredMessage="Debe Ingresar una fecha">
+                            
+                        </p:calendar>
+                        <p:commandButton value="Ingresar" 
+                                         actionListener="#{editarClienteManagedBean.actualizar}" />
+                    </h:panelGrid>
+                </p:panel>
+            </section>
+        </h:form>
+    </h:body>
+</html>

@@ -6,6 +6,8 @@
 package cl.usm.GestorClientes.dao;
 
 import cl.usm.GestorClientes.dto.Ciudad;
+import cl.usm.GestorClientes.dto.Pais;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -28,5 +30,7 @@ public class CiudadFacade extends AbstractFacade<Ciudad> implements CiudadFacade
     public CiudadFacade() {
         super(Ciudad.class);
     }
+
+    
     
 }

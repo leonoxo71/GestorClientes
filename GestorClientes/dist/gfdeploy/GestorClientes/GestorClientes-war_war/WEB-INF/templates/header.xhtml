@@ -8,8 +8,8 @@
     <p:menubar>
         <p:menuitem value="Home" url="/index.xhtml"/>
             
-        <p:submenu label="Cliente" >
-            <p:menuitem value="Agregar Cliente" 
+        <p:submenu label="Cliente" icon="pi pi-file" >
+            <p:menuitem value="Agregar Cliente"
                         url="/cliente/agregar_cliente.xhtml" />
             <p:menuitem value="Gestionar Cliente" 
                         url="/cliente/gestor_cliente.xhtml" />
@@ -24,9 +24,9 @@
 
             <p:submenu label="Ciudad" >
                  <p:menuitem value="Agregar Ciudad" 
-                        url="cliente/agregar_ciudad.xhtml" />
+                        url="/ciudad/agregar_ciudad.xhtml" />
                 <p:menuitem value="Gestionar Ciudad" 
-                        url="cliente/gestor_ciudad.xhtml" />
+                        url="/ciudad/gestor_ciudad.xhtml" />
             </p:submenu>
             
             <p:submenu label="Usuario" >
@@ -34,7 +34,9 @@
                         url="/usuario/agregar_usuario.xhtml" />
                 <p:menuitem value="Gestionar Usuarios" 
                         url="/usuario/ver_usuario.xhtml" />
-            </p:submenu>   
+            </p:submenu>
+        
+        <p:menuitem value="Logout" actionListener="#{usuarioLogeadoManagedBean.logOut}"/>
             
         </p:menubar>
 

@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Ver Clientes</title>
+    </h:head>
+    <h:body>
+        <h:form id='formulario'>
+            <p:growl id="mensajes" showDetail="true"/>
+            <ui:include src="/WEB-INF/templates/header.xhtml" />
+            <p:dataTable  id='tabla_paises'
+                          value="#{clienteManagedBean.clientes}" var="c">
+                <p:column headerText="Rut"
+                          filterBy="#{c.rut}" >
+                    <h:outputText value="#{c.rut}" />
+                </p:column>
+                <p:column headerText="Nombre" filterBy="#{c.nombre}">
+                    <h:outputText value="#{c.nombre}" />
+                </p:column>
+                <p:column headerText="Apellido paterno" filterBy="#{c.apPaterno}">
+                    <h:outputText value="#{c.apPaterno}" />
+                </p:column>
+                <p:column headerText="Apellido materno" filterBy="#{c.apMaterno}">
+                    <h:outputText value="#{c.apMaterno}" />
+                </p:column>
+                <p:column headerText="Email" filterBy="#{c.mail}">
+                    <h:outputText value="#{c.mail}" />
+                </p:column>
+                <p:column headerText="Telefono" filterBy="#{c.telefono}">
+                    <h:outputText value="#{c.telefono}" />
+                </p:column>
+                 <p:column headerText="Direccion" filterBy="#{c.direccion}">
+                    <h:outputText value="#{c.direccion}" />
+                </p:column>
+                <p:column headerText="Pais" filterBy="#{c.codCiudad.codPais.nombre}">
+                    <h:outputText value="#{c.codCiudad.codPais.nombre}" />
+                </p:column>
+                <p:column headerText="ciudad" filterBy="#{c.codCiudad.nombre}">
+                    <h:outputText value="#{c.codCiudad.nombre}" />
+                </p:column>
+                <p:column headerText="Acciones">
+                    <p:panelGrid columns="2" layout="grid">
+                        <p:commandLink value="Eliminar"
+                                   update=":formulario:mensajes :formulario:tabla_paises"
+                                   actionListener="#{clienteManagedBean.eliminar(c)}" />
+                        <p:commandLink value="Editar"
+                                       actionListener="#{clienteManagedBean.editar(c)}" />
+                    </p:panelGrid>
+                </p:column>
+            </p:dataTable>
+        </h:form>
+    </h:body>
+</html>

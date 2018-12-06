@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Ver Ciudades</title>
+    </h:head>
+    <h:body>
+        <h:form id='formulario'>
+            <p:growl id="mensajes" showDetail="true"/>
+            <ui:include src="/WEB-INF/templates/header.xhtml" />
+            <p:dataTable  id='tabla_paises'
+                          value="#{ciudadManagedBean.ciudades}" var="c">
+                <p:column headerText="Codigo"
+                          filterBy="#{c.codCiudad}" >
+                    <h:outputText value="#{c.codCiudad}" />
+                </p:column>
+                <p:column headerText="Nombre" filterBy="#{c.nombre}">
+                    <h:outputText value="#{c.nombre}" />
+                </p:column>
+                <p:column headerText="Pais" filterBy="#{c.codPais.nombre}">
+                    <h:outputText value="#{c.codPais.nombre}" />
+                </p:column>
+                <p:column headerText="Acciones">
+                    <p:panelGrid columns="2" layout="grid">
+                        <p:commandLink value="Eliminar"
+                                   update=":formulario:mensajes :formulario:tabla_paises"
+                                   actionListener="#{ciudadManagedBean.eliminar(c)}" />
+                        <p:commandLink value="Editar"
+                                       actionListener="#{ciudadManagedBean.editar(c)}" />
+                    </p:panelGrid>
+                </p:column>
+            </p:dataTable>
+        </h:form>
+    </h:body>
+</html>

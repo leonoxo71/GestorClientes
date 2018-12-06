@@ -6,6 +6,7 @@
 package cl.usm.GestorClientes.dao;
 
 import cl.usm.GestorClientes.dto.Ciudad;
+
 import java.util.List;
 import javax.ejb.Local;
 
@@ -27,7 +28,10 @@ public interface CiudadFacadeLocal {
     List<Ciudad> findAll();
 
     List<Ciudad> findRange(int[] range);
+   
 
     int count();
+
+
     
 }

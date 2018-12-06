@@ -16,16 +16,16 @@
                         <h:inputText id="username"
                                      required="true"
                                      requiredMessage="El usuario es obligatorio"
-                                     value="#{usuarioManagedBean.usuarioTxt}"></h:inputText>
+                                     value="#{usuarioLogeadoManagedBean.usuarioTxt}"></h:inputText>
                        
 
                         <h:outputText value="Password" />
                         <p:password id="pass" 
                                     required="true"
                                     requiredMessage="La password es obligatorio"
-                                    value="#{usuarioManagedBean.passwordTxt}" />
+                                    value="#{usuarioLogeadoManagedBean.passwordTxt}" />
 
-                        <h:commandButton action="#{usuarioManagedBean.autenticate()}"
+                        <h:commandButton actionListener="#{usuarioLogeadoManagedBean.autenticate}"
                                 value="Login"></h:commandButton>
                     </p:panelGrid>
                     

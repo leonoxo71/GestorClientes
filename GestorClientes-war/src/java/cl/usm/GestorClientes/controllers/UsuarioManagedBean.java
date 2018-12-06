@@ -83,29 +83,6 @@ public class UsuarioManagedBean implements Serializable {
     }
     
 
-    public void autenticate(){
-        Usuario us;
-        Usuario usuario = new Usuario();
-        usuario.setPassword(passwordTxt);
-        usuario.setUsuario(usuarioTxt);
-        try{
-           //us =  usuarioFacade.iniciarSesion(usuario);
-           //if(us != null){
-            //    FacesContext.getCurrentInstance()
-                 //   .getExternalContext().redirect("index.xhtml");
-           //}else{
-           FacesContext.getCurrentInstance()
-                    .addMessage(null, new FacesMessage("El usuario ingresado no se encuentra registrado en el sistema"));
-   //        }
-            
-        }
-        catch(Exception e){
-            FacesContext.getCurrentInstance()
-                    .addMessage(null, new FacesMessage("El usuario ingresado aca"));
-        }
-
-    }
-
     
     public String getSexo(int sexo){
         String u = "";
